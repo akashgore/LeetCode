@@ -53,7 +53,7 @@ namespace LeetCode.Logic
         **/
         public bool IsSubtree(TreeNode s, TreeNode t) 
         {
-
+            return true;
         }
 
 

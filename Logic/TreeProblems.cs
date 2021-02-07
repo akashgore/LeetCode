@@ -5,10 +5,9 @@ namespace LeetCode.Logic
 {
     public class TreeProblems
     {
-        
         /**
         * ? 94: Binary Tree Inorder Traversal 
-        * ! Algorithm: Recursive (InOrder(Left SubTree); print(Root); InOrder(Right SubTree)
+        * ! Algorithm: Recursive -> InOrder(Left SubTree); print(Root); InOrder(Right SubTree)
         * ! Notes: 
              1. Inorder traversal on BST gives nodes in ascending order (flattens tree to the way it was constructed).
              2. Non-primitives are passed by reference & primitives are passed by value.

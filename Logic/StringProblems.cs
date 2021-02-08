@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace LeetCode.Logic
 {
-    public class ArrayProblems
+    public class StringProblems
     {
         /**
         * ? 3:  Longest Substring Without Repeating Characters
@@ -43,9 +43,37 @@ namespace LeetCode.Logic
     
         /**
         * ? 20:  Valid Parentheses
+        * ! Algorithm: 
+        1. Create a dictionary of close-open bracket pairs
+        2. Iterate over the string
+                a. Add every open bracket to stack
+                b. Every close bracket should have its corresponding open bracket at stack top (pop); if not return false
+        3. At the end of string, if stack is not empty, it means there is an open bracket whose close bracket never came. So return false
+
         **/
-        public bool IsValid(string s) {
-                
+        public bool IsValid(string s) 
+        {
+            Stack<char> paran = new Stack<char>();
+            Dictionary<char, char> pairs = new Dictionary<char, char>();
+            pairs.Add(')', '(');
+            pairs.Add('}', '{');
+            pairs.Add(']', '[');
+
+            for (int i=0; i < s.Length; i++)
+            {
+                if (s[i] == '(' || s[i] == '{' || s[i] == '[')
+                {
+                    paran.Push(s[i]);
+                }
+                else
+                {
+                    if (paran.Count == 0 || pairs[s[i]] != paran.Pop())
+                    {
+                        return false;
+                    }
+                }
+            }
+            return paran.Count == 0;       
         }
     }
 }

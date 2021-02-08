@@ -120,5 +120,13 @@ namespace LeetCode.Logic
             } 
             return maxSubstringLength;
         }
+
+        /**
+        * ? 88:  Merge Sorted Array
+        **/
+        public void Merge(int[] nums1, int m, int[] nums2, int n) {
+
+            
+        }
     }
 }

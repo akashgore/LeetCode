@@ -4,7 +4,8 @@ This repository contains solutions to LeetCode problems in C#
 
 Array Problems:  
 122: Best Time to Buy & Sell Stock 2    
-56: Merge Intervals    
+56: Merge Intervals  
+88. Merge Sorted Array  
 
 LinkedList Problems:  
 

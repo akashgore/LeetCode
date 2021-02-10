@@ -123,10 +123,40 @@ namespace LeetCode.Logic
 
         /**
         * ? 88:  Merge Sorted Array
+        * ! Algorithm: 
+        1. Merge in reverse, ie: Fill nums1 from the end with the larger number.
+        2. While merging:  
+                a. nums2 ends before nums1: Then the remaining elements of nums1 stay where they are.
+                b. nums1 ends before nums2 (Edge Case): Add all remaining elements of nums[2] to nums1[last]
+        3. Note: m & n are number of elements, when using them as pointer variables ensure to use m - 1 & n - 1
         **/
-        public void Merge(int[] nums1, int m, int[] nums2, int n) {
+        public void Merge(int[] nums1, int m, int[] nums2, int n) 
+        {
+            int last = m + n - 1;
+            while (m > 0 && n > 0)
+            {
+                //Merge in reverse order
+                if(nums1[m - 1] > nums2[n - 1])
+                {
+                    nums1[last] = nums1[m-1];
+                    m = m - 1; 
+                    last = last - 1; 
+                }
+                else
+                {
+                    nums1[last] = nums2[n-1];
+                    n = n - 1;
+                    last = last - 1;
+                }
+            }
 
-            
-        }
+            //Edge Case 2.b
+            while (n > 0)
+            {
+                nums1[last] = nums2[n - 1];
+                n -=1;
+                last -=1;
+            }
+        }   
     }
 }

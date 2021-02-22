@@ -98,7 +98,7 @@ namespace LeetCode.Logic
                 b. Increment Left Pointer (l)
         5. If its not, it means s[r] maintains uniqueness of the substring so: 
                 a. Add character: s[r] to the set & 
-                b. Update "result" variable as (r-l+1)
+                b. Update "result" variable as Math.max((r-l+1), result)
 
         Reference Source: https://www.youtube.com/watch?v=wiGpQwVHdE0&feature=emb_logo 
         **/
@@ -157,6 +157,41 @@ namespace LeetCode.Logic
                 n -=1;
                 last -=1;
             }
+        }
+
+
+        /**
+        * ? 11. Container with Most Water
+        * ! Algorithm: 
+            1. Keep Max breadth and calculate Area (l=0; r=height.length-1)
+            2. Whichever length is smaller (height[l] or height[r]), move that pointer ahead.  
+                    If we move from the smaller side, there is a chance that we might increase the area.
+                    If we move from the bigger side, there is no chance in all possible cases:
+                        we find smaller wall next
+                        we find bigger wall next (still height will remain the smaller of left and right, breadth will decrease by 1)
+                        we find equal wall next
+            3. Calculate all areas, maintain the max area.
+            4. Repeat till l < r
+        **/
+        public int MaxArea(int[] height) 
+        {
+            int result = 0;
+            int l = 0, r = height.Length-1;
+            while (l < r)
+            {
+                int currentArea= Math.Min(height[l], height[r]) * (r - l);
+                result= Math.Max(result, currentArea);
+
+                if (height[l] < height[r])
+                {
+                    l+=1;
+                }
+			    else
+                {
+                    r-=1;
+                }
+            }
+            return result;
         }   
     }
 }

@@ -49,7 +49,6 @@ namespace LeetCode.Logic
                 a. Add every open bracket to stack
                 b. Every close bracket should have its corresponding open bracket at stack top (pop); if not return false
         3. At the end of string, if stack is not empty, it means there is an open bracket whose close bracket never came. So return false
-
         **/
         public bool IsValid(string s) 
         {
@@ -74,6 +73,33 @@ namespace LeetCode.Logic
                 }
             }
             return paran.Count == 0;       
+        }
+
+        /**
+        * ? 49:  Group Anagrams
+        * ! Algorithm: 
+                1. Create a dictionary of <sorted word, list of original words>
+                2. Iterate through the array and for every word, add to its appropriate entry in the dictionary.
+                3. At the end of the array retrieve dictionary values and convert to List and return.
+        **/
+        public IList<IList<string>> GroupAnagrams(string[] strs) 
+        {
+            Dictionary<string, IList<string>> anagrams = new Dictionary<string, IList<string>>();
+
+            for (int i = 0; i < strs.Length; i++)
+            {
+                string word = String.Concat(strs[i].OrderBy(c => c));
+                if(anagrams.ContainsKey(word))
+                {
+                    anagrams[word].Add(strs[i]);
+                }
+                else
+                {
+                    anagrams.Add(word, new List<string>());
+                    anagrams[word].Add(strs[i]);
+                }
+            }
+            return anagrams.Values.ToList();
         }
     }
 }

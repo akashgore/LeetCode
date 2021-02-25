@@ -13,7 +13,8 @@ LinkedList Problems:
 
 String Problems:  
 3:  Longest Substring Without Repeating Characters
-49: Group Anagrams  
+49: Group Anagrams
+8. Length of Last Word  
 
 Tree Problems:  
 94: Binary Tree Inorder Traversal  

@@ -101,5 +101,16 @@ namespace LeetCode.Logic
             }
             return anagrams.Values.ToList();
         }
+        /**
+        *? 8. Length of Last Word
+        **/
+        public int LengthOfLastWord(string s) {
+            if(String.IsNullOrEmpty(s))
+                return 0;
+            s = s.Trim();
+
+            string[] words = s.Split(' ');
+            return words[words.Length-1].Length;
+        }   
     }
 }

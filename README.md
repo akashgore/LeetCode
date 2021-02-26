@@ -7,6 +7,7 @@ Array Problems:
 56: Merge Intervals  
 88. Merge Sorted Array 
 11. Container with Most Water 
+55. Jump Games
 
 LinkedList Problems:  
 

@@ -192,6 +192,34 @@ namespace LeetCode.Logic
                 }
             }
             return result;
-        }   
+        }
+        
+
+        /**
+        * ? 55. Jump Games
+        * ! Algorithm:
+        I was thinking of a car. It needs to get parked in the garage. 
+        In case the array has a length of one we are really lucky as the car is already in the garage. 
+        Otherwise we need to get to the garage somehow. To get to the garage we pick up fuel along the way. 
+        If we ever run out of gas then it's game over.
+
+        We start by filling up the car at index = 0. 
+        If we are already out of gas we won't be able to pick up any more gas so game over. 
+        To get to the next array index it costs one fuel. 
+        At the next index we can choose to stick with the fuel tank we already have (which now contains fuel - 1 amount of fuel), or pick up a new tank at the next index. 
+        Some indices (nums[i] == 0) don't have any fuel so we will need to stick with what we got on those indices. 
+        Hopefully we will make it back to the garage.
+        **/
+        public bool CanJump(int[] nums) 
+        {
+            int fuel = 0;
+            for (int i=0; i< nums.Length-1; i++)
+            {
+                fuel = Math.Max(fuel-1, nums[i]);
+                if (fuel==0)
+                    return false;
+            }
+            return true;
+        }    
     }
 }

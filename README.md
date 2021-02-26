@@ -8,6 +8,7 @@ Array Problems:
 88. Merge Sorted Array 
 11. Container with Most Water 
 55. Jump Games
+53. Maximum Subarray
 
 LinkedList Problems:  
 

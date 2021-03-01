@@ -106,9 +106,52 @@ namespace LeetCode.Logic
                 return false;
             
             return IsSameTree(s,t) || IsSubtree(s.left, t) || IsSubtree(s.right, t);
-
         }
 
+        /**
+        *? 98. Validate Binary Search Tree
+        *! Algorithm:
 
+        lowerLimit and upperLimit checks are needed for the following 2 cases:
+             5                                   
+            /  \
+            4    6
+                /   \
+                3   7
+
+             5
+            /  \
+            4   6
+           /  \    
+           3   7
+
+        **/
+        public bool IsValidBST(TreeNode root) {
+            if(root == null)
+            {
+                return true;
+            }
+            return IsValidBSTHelper(root, long.MinValue, long.MaxValue);
+        }
+
+        public bool IsValidBSTHelper(TreeNode root, long lowerLimit, long upperLimit)
+        {
+            if(root == null)
+            {
+                return true;
+            }
+
+            if(root.left != null)
+                if(root.left.val >= root.val || root.left.val <= lowerLimit)
+            {
+                return false;
+            }
+            
+            if(root.right != null && root.right.val <= root.val || root.right.val >= upperLimit)
+            {
+                return false;
+            }
+            return IsValidBSTHelper(root.left, lowerLimit, root.val) && IsValidBSTHelper(root.right, root.val, upperLimit);
+        }
     }
 }

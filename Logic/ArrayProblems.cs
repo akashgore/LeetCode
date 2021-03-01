@@ -238,6 +238,33 @@ namespace LeetCode.Logic
                 maxSum = Math.Max(maxSum, currSum);
             }
             return maxSum;
+        }
+
+        /** 
+        *? 152. Maximum Product Subarray
+        *! Algorithm: 
+        At every element, we have 3 choices:
+            Math.Max(num, currProdMax*num, currProdMin*num)
+            Math.Min(num, currProdMax*num, currProdMin*num)
+        Math.Max(currProdMax, max)
+        **/
+        public int MaxProduct(int[] nums) 
+        {
+            int max = nums[0];
+            int currMax = nums[0];
+            int currMin = nums[0];
+
+            for (int i = 1; i < nums.Length; i++)
+            {
+                int tempMax = Math.Max(nums[i], Math.Max(currMax * nums[i], currMin * nums[i]));
+                int tempMin = Math.Min(nums[i], Math.Min(currMax * nums[i], currMin * nums[i]));
+
+                currMax = tempMax;
+                currMin = tempMin;
+
+                max = Math.Max(currMax, max);
+            }
+            return max;
         }    
     }
 }

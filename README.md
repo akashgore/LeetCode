@@ -9,6 +9,7 @@ Array Problems:
 11. Container with Most Water 
 55. Jump Games
 53. Maximum Subarray
+152. Maximum Product Subarray
 
 LinkedList Problems:  
 

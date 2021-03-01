@@ -25,9 +25,9 @@ Tree Problems:
 572: Subtree of Another Tree          
 98. Validate Binary Search Tree       
 
-Dynamic Programming:
+Dynamic Programming:        
 62. Unique Paths        
-63. Unqiue Paths 2      
+63. Unique Paths 2      
 
 Matrix Problems:
 79. Word Search     

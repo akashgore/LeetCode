@@ -127,10 +127,7 @@ namespace LeetCode.Logic
 
         **/
         public bool IsValidBST(TreeNode root) {
-            if(root == null)
-            {
-                return true;
-            }
+
             return IsValidBSTHelper(root, long.MinValue, long.MaxValue);
         }
 
@@ -142,15 +139,20 @@ namespace LeetCode.Logic
             }
 
             if(root.left != null)
+            {
                 if(root.left.val >= root.val || root.left.val <= lowerLimit)
-            {
+                {
                 return false;
+                }
             }
-            
-            if(root.right != null && root.right.val <= root.val || root.right.val >= upperLimit)
+
+            if(root.right != null)
             {
+                if(root.right.val <= root.val || root.right.val >= upperLimit)
+                {
                 return false;
-            }
+                }
+            } 
             return IsValidBSTHelper(root.left, lowerLimit, root.val) && IsValidBSTHelper(root.right, root.val, upperLimit);
         }
     }
